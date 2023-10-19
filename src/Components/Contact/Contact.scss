@@ -1,0 +1,38 @@
+.contact{
+    background-color: rgb(213, 213, 239);
+    height: 70px;
+    display: flex;
+    justify-content: space-around;
+
+    .wrapper{
+        align-items: center;
+        display: flex;
+        justify-content: space-around;
+        gap: 100px;
+        span{
+            font-weight: bold;
+
+        }
+        .mail{
+            button{
+                background-color: red;
+                padding: 5px;
+                border: none;
+                border-radius: 0 5px 5px 0;
+                color: white;
+                font-weight: bold;
+            }
+            input{
+                padding: 5px 15px;
+                border-radius: 5px 0 0 5px ;
+                border: none;
+            }
+        }
+        
+    }
+    .icons{
+        display: flex;
+        justify-content: center;
+        gap: 20px;
+    }
+}

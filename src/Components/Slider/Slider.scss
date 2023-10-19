@@ -1,0 +1,40 @@
+.slider{
+    height: calc(100vh - 80px);
+    width: 100vw;
+    margin-bottom: 100px;
+    overflow: hidden;
+    .container img{
+        height: 100vh;
+        width: 300vh;
+        object-fit: cover;
+    }
+    .container{
+        width: 300vw;
+        display: flex;
+        position: relative;
+        transition: all 1s ease;
+    }
+    .icons{
+        width: fit-content;
+        display: flex;
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: 100px;
+        gap: 10px;
+        margin: auto;
+        .icon{
+            width: 40px;
+            height: 40px;
+            border: 1px solid black;
+            margin: 10px;
+            cursor: pointer;
+            justify-content: center;
+            text-align: center;
+            align-items: center;
+
+        }
+
+    }
+
+}

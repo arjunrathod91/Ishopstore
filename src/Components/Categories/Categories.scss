@@ -1,0 +1,83 @@
+.categories {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 50px;
+  .category-box {
+    display: flex;
+    height: 500px;
+    width: 1000px;
+    gap: 5px;
+    img {
+      height: inherit;
+      width: inherit;
+      overflow: hidden;
+    }
+    .col {
+      height: 500px;
+      width: 250px;
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+      position: relative;
+      align-items: center;
+      justify-content: center;
+      button {
+        position: absolute;
+      }
+
+      .col-1 {
+        height: 250px;
+        width: 250px;
+        gap: 5px;
+        position: relative;
+        align-items: center;
+        justify-content: center;
+        button {
+          position: absolute;
+        }
+      }
+    }
+    .col-1 {
+      height: 500px;
+      width: 500px;
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+      position: relative;
+      align-items: center;
+      justify-content: center;
+      button {
+        position: absolute;
+      }
+      .row {
+        height: 250px;
+        width: 500px;
+        display: flex;
+        gap: 5px;
+        position: relative;
+        align-items: center;
+        justify-content: center;
+        button {
+          position: absolute;
+        }
+        .row1 {
+          height: 250px;
+          width: 250px;
+        }
+      }
+    }
+  }
+}
+button {
+  padding: 5px;
+  background-color: rgb(255, 255, 255);
+  width: 100px;
+  color: black;
+  border: none;
+  text-transform: uppercase;
+}
+.link{
+    color: inherit;
+    text-decoration: none;
+}

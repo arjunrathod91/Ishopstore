@@ -1,0 +1,40 @@
+.products{
+    display: flex;
+    gap: 30px;
+    .left{
+        flex: 1;
+        position: sticky;
+        height: 100%;
+        top: 50px;
+        margin-left: 40px;
+
+        .filterItem{
+            margin-bottom: 30px;
+            h2{
+                font-weight: 400;
+                margin-bottom: 20px;
+
+            }
+            .inputItem{
+                margin-bottom: 10px;
+                label{
+                    margin-left:10px ;
+                }
+            }
+        }
+
+    }
+    .right{
+        flex: 3;
+        .theme-img{
+            height: 150px;
+            width: 1000px;
+            img{
+                object-fit: cover;
+                height: 100%;
+                width: 100%;
+                overflow: hidden;
+            }
+        }
+    }
+}

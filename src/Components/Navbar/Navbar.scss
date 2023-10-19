@@ -1,0 +1,43 @@
+.item img{
+    height: 30px;
+    width: 30px;
+}
+.navbar{
+    height: 80px;
+    .wrapper{
+        padding: 10px 30px;
+        display: flex;
+        justify-content: space-between;
+        gap: 25px;
+        .item{
+            font-size: 1.2rem;
+            align-items: center;
+
+        }
+        .left{
+            display: flex;
+            align-items: center;
+            gap: 25px;
+
+
+        }
+        .center{
+            font-size: 1.4rem;
+
+        }
+        .right{
+            display: flex;
+            align-items: center;
+            gap: 25px;
+            .icons{
+                display: flex;
+                gap: 25px;
+                align-items: center;
+                cursor: pointer;
+
+            }
+
+        }
+    }
+
+}
