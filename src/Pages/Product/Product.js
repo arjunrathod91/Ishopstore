@@ -108,7 +108,7 @@ const Product = () => {
       <div className="down-part">
         <h2>Related Product</h2>
         <div className="series-product">
-          {relatedProduct.map((item)=>(
+          {relatedProduct.slice(0,5).map((item)=>(
              <div><Card item={item} key={item.id}/></div>
           ))}
         </div>

@@ -73,20 +73,32 @@ function Products() {
         <div className="filterItem">
           <h1>Product Category</h1>
           <div className="inputItem">
-            <input type="checkbox" id="1" value="shoes" onChange={(e)=>categorySort(e)} />
-            <label htmlFor="1">Shoes</label>
+            <input type="checkbox" id="1" value="shirt" onChange={(e)=>categorySort(e)}  />
+            <label htmlFor="1">Shirts</label>
           </div>
           <div className="inputItem">
-            <input type="checkbox" id="2" value="shirt" onChange={(e)=>categorySort(e)}  />
-            <label htmlFor="2">Shirts</label>
+            <input type="checkbox" id="2"  value="tshirt" onChange={(e)=>categorySort(e)}  />
+            <label htmlFor="2">Tshirts</label>
           </div>
           <div className="inputItem">
-            <input type="checkbox" id="3" value="hat" onChange={(e)=>categorySort(e)}  />
-            <label htmlFor="3">Pants</label>
+            <input type="checkbox" id="3" value="trouser" onChange={(e)=>categorySort(e)}  />
+            <label htmlFor="3">Trousers</label>
           </div>
           <div className="inputItem">
-            <input type="checkbox" id="4" value={4} onChange={(e)=>categorySort(e)}  />
-            <label htmlFor="4">Hats</label>
+            <input type="checkbox" id="4" value="top" onChange={(e)=>categorySort(e)}  />
+            <label htmlFor="4">Top</label>
+          </div>
+          <div className="inputItem">
+            <input type="checkbox" id="5" value="saree" onChange={(e)=>categorySort(e)}  />
+            <label htmlFor="5">Saree</label>
+          </div>
+          <div className="inputItem">
+            <input type="checkbox" id="6" value="hat" onChange={(e)=>categorySort(e)}  />
+            <label htmlFor="6">Hats</label>
+          </div>
+          <div className="inputItem">
+            <input type="checkbox" id="7" value="shoes" onChange={(e)=>categorySort(e)} />
+            <label htmlFor="7">Shoes</label>
           </div>
         </div>
         <div className="filterItem">
