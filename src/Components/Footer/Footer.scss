@@ -1,6 +1,8 @@
 .footer{
+    background-color: rgba(241, 241, 241, 0.427);
+    border-top: 1px solid rgb(212, 212, 212);
     .item{
-        padding: 40px;
+        padding: 10px 40px;
         span{
             display: flex;
             flex-direction: column;
@@ -23,17 +25,18 @@
         display: flex;
         justify-content: space-around;
         align-items: center;
+        background-color: rgb(229, 229, 229);
 
         .left{
             .logo{
-                font-size: 1.5rem;
-            color: rgb(73, 216, 204);
+                font-size: 0.9rem;
+            color: rgb(78, 78, 78);
             font-weight: bold;
             margin-right: 30px;
 
             }
             .copyright{
-                font-size: 1.2rem;
+                font-size: 0.8rem;
 
             }
         }
@@ -95,6 +98,7 @@
                 color: rgb(73, 216, 204);
                 font-weight: bold;
                 margin-right: 30px;
+                display: none;
     
                 }
                 .copyright{
@@ -121,6 +125,7 @@
                 flex-direction: column;
                 
                 .logo{
+                    display: none;
                     font-size: 12px;
                 color: rgb(73, 216, 204);
                 font-weight: bold;
