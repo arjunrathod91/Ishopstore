@@ -59,7 +59,7 @@ function List({ sorting,sortlist }) {
         setData(allData.filter((item)=>item.category == quory));
         break; 
     }
-  }, [data])
+  }, [location.pathname])
 
 
   return (
