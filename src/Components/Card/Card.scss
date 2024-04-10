@@ -4,6 +4,7 @@
     flex-direction: column;
     gap: 10px;
     margin-bottom: 50px;
+    cursor: pointer;
 
     .images{
         width: 100%;
@@ -11,11 +12,11 @@
         overflow: hidden;
         position: relative;
 
-        &:hover{
-            .secImg{
-                z-index: 2;
-            }
-        }
+        // &:hover{
+        //     .secImg{
+        //         z-index: 2;
+        //     }
+        // }
         img{
             height: 100%;
             width: 100%;
@@ -48,4 +49,15 @@
 .link{
     text-decoration: none;
     color: inherit;
+}
+
+@media only screen and (max-width:1000px){
+    .card{
+        width: 180px;
+        .images{
+            height: 240px;
+            }
+    }
+
+    
 }

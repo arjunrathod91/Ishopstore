@@ -1,0 +1,37 @@
+men 
+12 products each
+
+tshirts
+shirts
+pants
+trousers
+hat
+shoes
+tie
+coat
+
+women
+
+12 products each
+
+tops
+tshirts
+shirts
+kurta
+pajama
+saree
+western dress
+hat
+
+children
+
+12 products each
+
+tshirt
+shirts
+pants
+trousers
+fashion were
+
+
+

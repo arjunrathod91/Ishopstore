@@ -1,5 +1,6 @@
 import React from "react";
 import './Footer.scss'
+import { Link } from "react-router-dom";
 
 function Footer() {
   return (
@@ -7,11 +8,16 @@ function Footer() {
       <div className="top">
         <div className="item">
           <h1>Category</h1>
-          <span>Women</span>
-          <span>Men</span>
-          <span>Children</span>
-          <span>Accessories</span>
-          <span>New Arrivals</span>
+          <div className="">
+            <Link to="women" className="link">Women</Link>
+          </div>
+          <div className="">
+            <Link to="men" className="link">Men</Link>
+          </div>
+          <div className="">
+            <Link to="children" className="link">Children</Link>
+          </div>
+
         </div>
         <div className="item">
           <h1>Links</h1>
@@ -34,13 +40,9 @@ function Footer() {
       <div className="bottom">
         <div className="left">
           <span className="logo">ISHOPSTORE</span>
-          <span className="copyright"> © Copyright Reserved www.ishopstorecommerce.com  Government India</span>
+          <span className="copyright"> © Copyright Reserved www.ishopstorecommerce.com</span>
           
 
-        </div>
-        <div className="right">
-          <img src='https://citimedical.co.uk/wp-content/uploads/2020/10/paypal_payment-gateway.png' alt="" />
-            
         </div>
       </div>
     </div>

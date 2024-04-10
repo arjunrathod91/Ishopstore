@@ -1,35 +1,62 @@
-.products{
+.products {
     display: flex;
     gap: 30px;
-    .left{
+    position: relative;
+
+    .none {
+        display: none;
+    }
+    .category{
+        display: none;
+    }
+
+    .category-btn {
+        display: none;
+    }
+
+    .left {
         flex: 1;
         position: sticky;
         height: 100%;
         top: 50px;
         margin-left: 40px;
 
-        .filterItem{
+        .filterItem {
             margin-bottom: 30px;
-            h2{
+
+            h2 {
                 font-weight: 400;
                 margin-bottom: 20px;
 
             }
-            .inputItem{
+
+            .inputItem {
                 margin-bottom: 10px;
-                label{
-                    margin-left:10px ;
+
+                label {
+                    margin-left: 10px;
                 }
             }
         }
 
     }
-    .right{
+
+    .right {
         flex: 3;
-        .theme-img{
-            height: 150px;
+
+        .list {
+            display: flex;
+            margin-right: 10px;
+            gap: 20px;
+            flex-wrap: wrap;
+            margin-top: 50px;
+        }
+
+        .theme-img {
+            height: 250px;
             width: 1000px;
-            img{
+
+            img {
                 object-fit: cover;
                 height: 100%;
                 width: 100%;
@@ -37,4 +64,51 @@
             }
         }
     }
+}
+
+@media only screen and (max-width:1080px) {
+    .left {
+        // display: none;
+    }
+
+    .right {
+        .theme-img {
+            display: none;
+        }
+
+        .list {
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+        }
+    }
+
+}
+
+
+
+
+@media only screen and (max-width:427px) {
+    .products{
+        .category{
+            display: flex;
+            font-size: 2rem;
+            padding: 10px;
+            position: absolute;
+            top: 0;
+            left: 2%;
+            margin-bottom: 50px;
+        }
+        .left{
+            display: none;
+        }
+        .right{
+            margin-top: 30px;
+            .search-section{
+                margin-top: 50px;
+            }
+        }
+
+    }
+
 }

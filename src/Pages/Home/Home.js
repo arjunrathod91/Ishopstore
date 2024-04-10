@@ -1,18 +1,19 @@
-import React from 'react'
-import Slider from '../../Components/Slider/Slider'
+import React, { useContext } from 'react'
 import './Home.scss'
+import { Context } from '../../Context/UserContext'
+import Slider from '../../Components/Slider/Slider'
 import FeaturedProduct from '../../Components/FeaturedProduct/FeaturedProduct'
-import Categories from '../../Components/Categories/Categories'
-import Contact from '../../Components/Contact/Contact'
 
 function Home() {
+  const {data} = useContext(Context)
   return (
     <div className='home'>
       <Slider/>
       <FeaturedProduct type="Featured Product"/>
+      {/*
       <FeaturedProduct type="Trending Product"/>
       <Categories/>
-      <Contact/>
+      <Contact/> */}
     </div>
   )
 }
