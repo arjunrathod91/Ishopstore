@@ -4,29 +4,20 @@ import Card from "../Card/Card";
 import axios from "axios";
 import { useLocation, useNavigate } from "react-router-dom";
 import { Context } from "../../Context/UserContext";
+import allData from '../../data'
 
 function FeaturedProduct({ type }) {
   const {data, setData} = useContext(Context);
-  // const fetch = true
+
+  // useEffect(()=>{
+  //   axios.get('http://localhost:3004/featured')
+  //   .then(details => setData(details.data))
+  //   .catch(err => console.log(err))
+  // },[data])
 
   useEffect(()=>{
-    axios.get('http://localhost:3004/featured')
-    .then(details => setData(details.data))
-    .catch(err => console.log(err))
+    setData(allData)
   },[data])
-
-  // switch(fetch){
-  //   case location.pathname == '/':{
-
-  //   }
-
-  // }
-
-  // const nav = useNavigate()
-
-  // const nevigate=()=>{
-  //   nav("/product")
-  // }
 
 
   return (
