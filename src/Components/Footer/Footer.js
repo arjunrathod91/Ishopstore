@@ -28,13 +28,12 @@ function Footer() {
         </div>
         <div className="item">
             <h1>About</h1>
-            <span>Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse, molestiae. 
-                Voluptates optio tempore, deserunt ducimus fuga quis libero eveniet aut.</span>
+            <span>Welcome to Ishopstore, your number one source for all things fashion. We're dedicated to giving you the very best of clothing, with a focus on quality, style, and uniqueness.</span>
         </div>
         <div className="item">
             <h1>Contact</h1>
-            <span>Lorem ipsum dolor sit amet consectetur adipisicing elit. 
-                Sint, ad quam aspernatur quasi dolore dicta.</span>
+            <input placeholder="Email"/>
+            <button>Send</button>
         </div>
       </div>
       <div className="bottom">

@@ -1,0 +1,198 @@
+.cart {
+    background-color: rgb(241, 241, 255);
+    display: flex;
+    height: 100vh;
+    overflow-y: scroll;
+    justify-content: center;
+    align-items: start;
+    padding: 20px;
+    .cartsection {
+        background-color: white;
+        width: 80%;
+        .emptyCart {
+            height: 100%;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            button{
+                background-color: rgb(69, 123, 194);
+                border-radius: 5px;
+                padding: 5px 7px;
+                width: 150px;
+                font-size: 16px;
+                font-weight: 500;
+                border: none;
+                border: 1px solid rgb(239, 238, 238);
+                color: white;
+                outline: none;
+                cursor: pointer;
+            }
+            button:hover{
+                background-color: rgb(17, 84, 135);
+            }
+        }
+
+        .item {
+            display: flex;
+            align-items: start;
+            padding: 20px;
+            padding-left: 40px;
+            gap: 20px;
+            border-bottom: 0.4px solid rgb(239, 239, 239);
+
+            img {
+                width: 150px;
+                height: 180px;
+                object-fit: cover;
+                margin-top: 20px;
+            }
+
+            .details {
+                width: 70%;
+                align-items: start;
+                justify-content: start;
+                display: flex;
+                flex-direction: column;
+                margin-top: 0;
+
+                h3 {
+                    font-size: 18px;
+                    font-weight: 500;
+                }
+
+                p {
+                    color: gray;
+                    margin-bottom: 10px;
+                    font-size: 14px;
+                }
+
+                .price {
+                    color: #2979fe;
+                }
+
+            }
+
+            .delete {
+                position: absolute;
+                color: red;
+                font-size: 30px;
+                cursor: pointer;
+                margin: 20px;
+                top: 2%;
+                right: 0%;
+            }
+
+
+        }
+
+        .total {
+            display: flex;
+            justify-content: space-between;
+            font-weight: 500;
+            font-size: 18px;
+        }
+
+        .checkout {
+            display: flex;
+            justify-content: start;
+            align-items: center;
+            gap: 20px;
+            .remove{
+                cursor: pointer;
+            }
+
+            button {
+                width: 200px;
+                padding: 10px;
+                background-color: rgb(69, 123, 194);
+                color: white;
+                margin-top: 20px;
+                cursor: pointer;
+                border: none;
+            }
+            button:hover{
+                background-color: rgb(17, 84, 135);
+
+
+            }
+
+        }
+
+        .reset {
+            color: red;
+            font-size: 12px;
+            cursor: pointer;
+        }
+    }
+}
+
+
+
+@media only screen and (max-width:699px) {
+    .cart{
+        padding: 0;
+        .cartsection{
+            width: 100%;
+            .item{
+                img{
+                    height: 100px;
+                    width: 100px;
+                }
+                .details{
+                    h3{
+                        font-size: 18px;
+                        font-weight: 500;
+                    }
+                }
+
+            }
+        }
+    }
+}
+
+@media only screen and (max-width:426px) {
+    .cart{
+        padding: 0;
+        .cartsection{
+            width: 100%;
+            .item{
+                padding: 5px;
+                img{
+                    height: 100px;
+                    width: 100px;
+                }
+                .details{
+                    h3{
+                        font-size: 12px;
+                        font-weight: 500;
+                    }
+                    p{
+                        font-size: 10px;
+                        margin-bottom: 0;
+
+                    }
+                }
+
+            }
+            .checkout {
+                gap: 10px;
+    
+                button {
+                    width: 80px;
+                    padding: 10px;
+                    background-color: #0000ff;
+                    margin-top: 20px;
+                    cursor: pointer;
+                    border: none;
+                }
+    
+            }
+            .total{
+                span{
+                    font-size: 13px;
+                }
+            }
+        }
+    }
+}

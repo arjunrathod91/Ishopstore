@@ -1,0 +1,35 @@
+.sec{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;   
+    .search-section{
+    height: 30px;
+    width: 80%;
+    display: flex;
+    position: relative;
+    border: 1px solid black;
+    border-radius: 3px;
+    padding: 1px;
+    margin-bottom: 20px;
+    margin-top: 20px;
+    input{
+        height: 90%;
+        width: 100%;
+        outline: none;
+        border: none;
+        background-color: none;
+    }
+    .searchbtn{
+        cursor: pointer;
+    }
+    // .search-results{
+    //     height: 100px;
+    //     width: 200px;
+    //     background-color: white;
+    //     position: absolute;
+    //     top: 10%;
+    //     right: 0%;
+    // }
+}
+}

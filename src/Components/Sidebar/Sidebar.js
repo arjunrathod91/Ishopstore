@@ -3,7 +3,6 @@ import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import PersonIcon from "@mui/icons-material/Person";
 import CloseIcon from '@mui/icons-material/Close';
-import Cart from "../Cart/Cart";
 import WishList from "../Wishlist/WishList";
 import { Link } from 'react-router-dom';
 

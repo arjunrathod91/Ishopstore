@@ -6,9 +6,12 @@ import { useLocation, useNavigate, useParams } from "react-router-dom";
 import axios from "axios";
 import { Context } from "../../Context/UserContext";
 import { Card } from "@mui/material";
+import Filter from "../../Components/Filter/Filter";
+import { ArrowRight } from "@mui/icons-material";
 
 function SearchProduct() {
   const {setQuory} = useContext(Context)
+
   const navigate = useNavigate();
   const search=()=>{
     navigate('/searchPage')
@@ -22,6 +25,7 @@ function SearchProduct() {
     // const fetch = true;
     const { data, setData,quory } = useContext(Context);
     const [sortlist,setSortList] = useState([])
+    const [filter,setFilter] = useState(false)
   
     const sorteddata=()=>{
       data.filter(item=>item.newPrice == maxPrice)
@@ -32,6 +36,11 @@ function SearchProduct() {
       setSorting(true)
       setSortList(data.filter(item=>item.newPrice < maxPrice))
     }
+
+    const apply = () => {
+      setFilter(false)
+    }
+
   
     const sortAsc=()=>{
       setSorting(true)
@@ -51,6 +60,7 @@ function SearchProduct() {
 
   return (
     <div className="products">
+       <div onClick={()=>setFilter(!filter)} className="filterbtn"><ArrowRight/> Filter</div>
       <div className="left">
         <div className="filterItem">
           <h1>Product Category</h1>
@@ -120,17 +130,18 @@ function SearchProduct() {
           </div>
         </div>
       </div>
-      <div className="right">
+      <div className="right-sec">
         <div className="search-section">
         <input placeholder="Search" onChange={(e)=>setQuory(e.target.value)} />
             <div className="searchbtn" onClick={search}>
             <SearchIcon/>
             </div>
         </div>
-        <h1>Search "{quory}"</h1>
         {data ? <List sorting={sorting} setSorting={setSorting} sortlist={sortlist}/> : 'No Search Result Found' }
         {/* catId={catId} maxPrice={maxPrice} sort={sort}  */}
+        
       </div>
+      {filter && <Filter apply={apply} categorySort={categorySort} sortAsc={sortAsc} sortDsc={sortDsc} maxPrice={maxPrice} dataOnChange={dataOnChange} filter={filter} setFilter={setFilter}/>}
     </div>
   );
 }

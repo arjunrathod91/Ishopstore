@@ -2,28 +2,38 @@ import React, { useContext, useEffect, useState } from "react";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
-import SearchIcon from "@mui/icons-material/Search";
 import PersonIcon from "@mui/icons-material/Person";
+import SearchIcon from "@mui/icons-material/Search";
+import WestIcon from '@mui/icons-material/West';
+import { useMediaQuery } from '@mui/material';
 import './Navbar.scss'
 import { Link, useNavigate } from "react-router-dom";
 import { Context } from "../../Context/UserContext";
-import Cart from "../Cart/Cart";
 import Sidebar from "../Sidebar/Sidebar";
 import axios from "axios";
 import WishList from "../Wishlist/WishList";
 import MenuIcon from '@mui/icons-material/Menu';
 function Navbar() {
-  const [open,setOpen] = useState(false)
-  const [openWishList,setOpenWishList] = useState(false)
-  const [menubar,setMenubar] = useState(false)
-  const {cart,setCart,quory,setQuory,setSearched,wishlist, setWishList} = useContext(Context)
+  const [open, setOpen] = useState(false)
+  const [openWishList, setOpenWishList] = useState(false)
+  const [menubar, setMenubar] = useState(false)
+  const { cart, setCart, quory, setQuory, setSearched, wishlist, setWishList, user, setUser } = useContext(Context)
   const navigate = useNavigate();
+  const [searchBarEnable, setSearchBarEnable] = useState(false)
 
-  const search=()=>{
+  const isScreenSmall = useMediaQuery('(max-width:900px)');
+
+
+
+  const cartPage = () => {
+    navigate('/cart')
+  }
+
+  const search = () => {
     navigate('/searchPage')
   }
 
-  const [relatedProduct,setRelatedProduct] = useState([])
+  const [relatedProduct, setRelatedProduct] = useState([])
 
   // useEffect(()=>{
   //   axios.get('http://localhost:3004/women')
@@ -31,13 +41,29 @@ function Navbar() {
   //   .catch(err => console.log(err))
   // },[relatedProduct])
 
-  const searchResults=[
-    'hat','shoes','shirt'
+  const searchResults = [
+    'hat', 'shoes', 'shirt'
   ]
+
+  const handleKeyDown = (event) => {
+    if (event.key === 'Enter') {
+      navigate('/searchPage')
+    }
+  };
+
+  const login = () => {
+    navigate('/login')
+  }
 
   return (
     <div className="navbar">
-      <div className="menu" onClick={()=>setMenubar(!menubar)}><MenuIcon/></div>
+      <div className="searchcompo" style={{ display: `${searchBarEnable ? 'flex' : 'none'}` }}>
+        <div onClick={() => setSearchBarEnable(false)}>
+          <WestIcon />
+        </div>
+        <input placeholder="Search Products" onChange={(e) => setQuory(e.target.value)} onKeyDown={handleKeyDown} />
+      </div>
+      <div className="menu" onClick={() => setMenubar(!menubar)}><MenuIcon /></div>
       <div className="wrapper">
         <div className="left">
           <div className="item">
@@ -66,30 +92,37 @@ function Navbar() {
         </div>
         <div className="right">
           <div className="search-section">
-            <input placeholder="Search" onChange={(e)=>setQuory(e.target.value)} />
+            <input placeholder="Search" onChange={(e) => setQuory(e.target.value)} />
             <div className="searchbtn" onClick={search}>
-            <SearchIcon/>
+              <SearchIcon />
             </div>
             {/* <div className="search-results">
 
             </div> */}
           </div>
-
           <div className="icons">
-            <PersonIcon className="uicon"/>
-            <div onClick={()=>{setOpenWishList(!openWishList);setOpen(false)}}>
-            <FavoriteBorderIcon/>
+
+            <div className="searchicon" onClick={() => setSearchBarEnable(true)}>
+              <SearchIcon className="searchbaricon" style={{ fontSize: `${isScreenSmall ? 23 : 30}px` }} />
             </div>
-            
+            {user ? <div onClick={()=>navigate('/account')}><PersonIcon className="usericon" style={{ fontSize: `${isScreenSmall ? 23 : 30}px` }} /></div> : 
+            <div onClick={login}>
+              <button className="loginBtn">Login</button>
+            </div>}
+            {/* <div onClick={() => { setOpenWishList(!openWishList); setOpen(false) }}>
+              <FavoriteBorderIcon />
+            </div> */}
+
           </div>
-          <div className="addcart"  onClick={()=>{setOpen(!open);setOpenWishList(false)}}>
-            <ShoppingCartIcon/>
-            <span>{cart.length}</span>
+          <div className="addcart" onClick={cartPage}>
+            <ShoppingCartIcon className="shoppingicon" style={{ fontSize: `${isScreenSmall ? 23 : 30}px` }} />
+            <div>
+              <span>{cart.length}</span>
+            </div>
           </div>
         </div>
       </div>
-      {open && <Cart cart={cart} setCart={setCart}/>}
-      {openWishList && <WishList wishlist={wishlist} setWishList={setWishList}  />}
+      {openWishList && <WishList wishlist={wishlist} setWishList={setWishList} />}
       {menubar && <Sidebar menubar={menubar} setMenubar={setMenubar} open={open} setOpen={setOpen} openWishList={openWishList} setOpenWishList={setOpenWishList} />}
     </div>
   );

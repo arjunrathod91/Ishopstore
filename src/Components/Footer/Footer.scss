@@ -3,6 +3,27 @@
     border-top: 1px solid rgb(212, 212, 212);
     .item{
         padding: 10px 40px;
+        input{
+            background-color: rgb(255, 255, 255);
+            padding:10px;
+            border-radius: 3px;
+            width: 150px;
+            outline: none;
+            border: 1px solid gray;
+            margin-right: 5px;
+        }
+        button{
+            background-color: rgb(73, 143, 173);
+            border: none;
+            outline: none;
+            cursor: pointer;
+            padding: 11px;
+            border-radius: 5px;
+            color: white;
+        }
+        button:hover{
+            background-color: rgb(15, 91, 114);
+        }
         span{
             display: flex;
             flex-direction: column;
@@ -26,6 +47,7 @@
         justify-content: space-around;
         align-items: center;
         background-color: rgb(229, 229, 229);
+        height: 50px;
 
         .left{
             .logo{
@@ -49,6 +71,7 @@
             gap: 10px;
             .item{
                 padding: 10px;
+                
                 h1{
                     font-size: 20px;
                 }
@@ -76,44 +99,7 @@
     
 }
 
-@media only screen and (max-width:600px) {
-    .footer{
-        .top{
-            gap: 10px;
-            .item{
-                padding: 10px;
-                h1{
-                    font-size: 15px;
-                }
-                span{
-                    font-size: 12px;
-                }
-            }
-
-        }
-        .bottom{
-            .left{
-                .logo{
-                    font-size: 16px;
-                color: rgb(73, 216, 204);
-                font-weight: bold;
-                margin-right: 30px;
-                display: none;
-    
-                }
-                .copyright{
-                    font-size: 14px;
-    
-                }
-            }
-
-        }
-    }
-
-    
-}
-
-@media only screen and (max-width:375px) {
+@media only screen and (max-width:719px) {
     .footer{
         .top{
             flex-wrap: wrap;

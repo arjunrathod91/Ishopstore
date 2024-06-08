@@ -6,7 +6,7 @@ import { useLocation, useNavigate } from "react-router-dom";
 import { Context } from "../../Context/UserContext";
 import allData from '../../data'
 
-function FeaturedProduct({ type }) {
+function FeaturedProduct({ type,desc,categoryData,start,end }) {
   const {data, setData} = useContext(Context);
 
   // useEffect(()=>{
@@ -15,24 +15,17 @@ function FeaturedProduct({ type }) {
   //   .catch(err => console.log(err))
   // },[data])
 
-  useEffect(()=>{
-    setData(allData)
-  },[data])
-
 
   return (
     <div className="featuredproduct">
       <div className="top">
         <h1>{type}</h1>
         <p>
-        Discover our latest featured product, crafted with precision and quality. Designed to
-         enhance various aspects of your life, this product offers both style and functionality.
-          With its sleek design and innovative features, it promises to elevate your experience effortlessly.
-           Upgrade today and discover the difference..
+        {desc}
         </p>
       </div>
       <div className="bottom">
-        {data.slice(0,4).map((item) => {
+        {categoryData.slice(start,end).map((item) => {
           return <div><Card item={item} key={item.id}/></div>;
         })}
       </div>

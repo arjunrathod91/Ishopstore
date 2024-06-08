@@ -4,30 +4,29 @@ import { Link, useNavigate } from 'react-router-dom'
 import { Context } from '../../Context/UserContext';
 
 function Card({item}) {
-  const {product, setProduct} = useContext(Context);
+  const {product, setProduct,relatedProductCategory,setRelatedProductCategory} = useContext(Context);
   const {cart,setCart} = useContext(Context)
 
   const navigate = useNavigate()
 
   const singleProduct=(e,item)=>{
     e.preventDefault()
-    console.log(item)
     setProduct(item)
     navigate('/product')
   }
 
   return (
-    <div className='card' onClick={(e)=>singleProduct(e,item)}>
+    <div className='card' onClick={(e)=>{singleProduct(e,item);setRelatedProductCategory(item.type)}}>
       {/* //()=>setProduct(item) */}
         <div className="images">
             <span>New Season</span>
             <img src={item.img1} alt="" className='mainImg' />
             <img src={item.img2} alt="" className='secImg' />
         </div>
-        <span>{item.title}</span>
+        <span>{item.title.substring(0,40)}</span>
         <div className="content">
-            <span className='oldPrice'>${item.oldPrice}</span>
-            <span className='newPrice'>${item.newPrice}</span>
+            <span className='oldPrice'>₹{item.oldPrice}</span>
+            <span className='newPrice'>₹{item.newPrice}</span>
         </div>
 
       

@@ -51,11 +51,22 @@
     color: inherit;
 }
 
-@media only screen and (max-width:1000px){
+@media only screen and (max-width:530px){
     .card{
-        width: 180px;
+        width: 150px;
         .images{
-            height: 240px;
+            height: 200px;
+            }
+    }
+
+    
+}
+
+@media only screen and (max-width:427px){
+    .card{
+        width: 130px;
+        .images{
+            height: 200px;
             }
     }
 

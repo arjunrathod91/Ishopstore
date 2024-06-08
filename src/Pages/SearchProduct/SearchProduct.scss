@@ -30,7 +30,7 @@
 
     }
 
-    .right {
+    .right-sec {
         flex: 3;
         justify-content: center;
         align-items: center;
@@ -62,16 +62,14 @@
             margin-right: 10px;
             gap: 20px;
             flex-wrap: wrap;
-            margin-top: 50px;
         }
     }
 }
 
 @media only screen and (max-width:900px) {
     .products {
-        .right {
+        .right-sec{
             .search-section {
-                display: flex;
             }
         }
     }
@@ -80,8 +78,15 @@
 }
 
 @media only screen and (max-width:427px) {
-    .right{
+    .products{
         padding-left: 20px;
+        display: flex;
+        flex-direction: column;
+    }
+    .right-sec{
+        padding: 20px;
+        display: flex;
+        flex-wrap: wrap;
     }
     
 }

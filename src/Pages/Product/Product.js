@@ -6,48 +6,71 @@ import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
 import AddShoppingCartIcon from "@mui/icons-material/AddShoppingCart";
 import { Context } from "../../Context/UserContext";
 import Card from "../../Components/Card/Card";
+import { ArrowRight, ShoppingCart } from "@mui/icons-material";
+import children from "../../children";
+import women from "../../women";
+import men from "../../men";
 
-// function Product({ item }) {
-//   const [selectedImg, setSelectedImg] = useState(0);
-//   const [quantity, setQuantity] = useState(1);
-//   return (
-//     <div className="product">
-//       {
-//         selectedImg.filter(()=>{
-//           (
-//             <></>
-//           )
-//         })
-//       }
-//     </div>
-//   );
-// }
 
 const Product = () => {
   const [selectedImg, setSelectedImg] = useState(0);
-  const { cart, setCart,quantity, setQuantity,wishlist, setWishList,wishlistOn, setWishListOn} = useContext(Context)
+  const { cart, setCart,quantity, setQuantity,wishlist, setWishList,wishlistOn, setWishListOn, cartOn,data, SetCartOn,relatedProductCategory,setRelatedProductCategory,setData} = useContext(Context)
 
   const [currentImg, setCurrentImg] = useState();
   const { product, setProduct } = useContext(Context);
 
-  const [relatedProduct,setRelatedProduct] = useState([])
+  const [relatedProduct,setRelatedProduct] = useState([]);
 
   const addTOCart=(e,item)=>{
     e.preventDefault()
     setCart([...cart,item])
+    // SetCartOn(!cartOn)
+    // const existingOrdersJSON = JSON.parse(localStorage.getItem('user'));
+    // existingOrdersJSON.usercart = [...cart, item]
+    // localStorage.setItem('user',JSON.stringify(existingOrdersJSON))
   }
 
   const addToWishList=(e,item)=>{
     e.preventDefault()
-    setWishListOn(!wishlistOn)
+    // setWishListOn(!wishlistOn)
     setWishList([...wishlist,item])
+    // const existingOrdersJSON = JSON.parse(localStorage.getItem('user'));
+    // existingOrdersJSON.userwishlist = [...wishlist, item]
+    // localStorage.setItem('user',JSON.stringify(existingOrdersJSON))
   }
 
-  useEffect(()=>{
-    axios.get(`http://localhost:3004/${product.type}`)
-    .then(details => setRelatedProduct(details.data))
-    .catch(err => console.log(err))
-  },[relatedProduct])
+  // useEffect(()=>{
+  //   axios.get(`http://localhost:3004/${product.type}`)
+  //   .then(details => setRelatedProduct(details.data))
+  //   .catch(err => console.log(err))
+  // },[relatedProduct])
+
+  const shuffleArray = (array) => {
+    let shuffledArray = array.slice();
+    for (let i = shuffledArray.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [shuffledArray[i], shuffledArray[j]] = [shuffledArray[j], shuffledArray[i]];
+    }
+    return shuffledArray;
+  };
+
+  useEffect(() => {
+    switch (fetch) {
+      case relatedProductCategory === "children":
+        const shuffledItems1 = shuffleArray(children);
+        setData(shuffledItems1);
+        break;
+      case relatedProductCategory === "women":
+        const shuffledItems2 = shuffleArray(women);
+        setData(shuffledItems2);
+        break;
+      case relatedProductCategory === "men":
+        const shuffledItems3 = shuffleArray(men);
+        setData(shuffledItems3);
+        break; 
+    }
+  }, [])
+
 
   return (
     <div className="product">
@@ -82,7 +105,7 @@ const Product = () => {
           </div> */}
           <button className="add" onClick={(e)=>addTOCart(e,product)} >
             {/* */}
-            <AddShoppingCartIcon /> Add To Cart
+            {cartOn ? (<><ArrowRight /> Go to Cart</>) : (<><ShoppingCart/> Add to Cart</>)}
           </button>
           <div className="links">
             <div className="item" onClick={(e)=>addToWishList(e,product)} style={{cursor:'pointer'}} >
@@ -108,7 +131,7 @@ const Product = () => {
       <div className="down-part">
         <h2>Related Product</h2>
         <div className="series-product">
-          {relatedProduct.slice(0,5).map((item)=>(
+          {data.slice(0, 5).map((item)=>(
              <div><Card item={item} key={item.id}/></div>
           ))}
         </div>

@@ -2,13 +2,6 @@ import React from 'react'
 import './Categories.scss'
 import { Link } from 'react-router-dom'
 
-// https://tse2.mm.bing.net/th?id=OIP.BAcVmZCPD4-qtnWoo01amAHaHa&pid=Api&P=0&h=180
-// https://tse3.mm.bing.net/th?id=OIP.MoZmjbjFoBDkQ-xKthu05gHaJd&pid=Api&P=0&h=180
-// https://tse1.mm.bing.net/th?id=OIP.F6hdKJ_3uGZqvzY2hiYptQHaIB&pid=Api&P=0&h=180
-// https://tse1.mm.bing.net/th?id=OIP.7x6VuNPt6Nyu4THbry6OTwHaKi&pid=Api&P=0&h=180
-// https://tse2.mm.bing.net/th?id=OIP.sqHaOUG3TGqFGtzYuJ9QyQHaJj&pid=Api&P=0&h=180
-// https://tse1.explicit.bing.net/th?id=OIP.Ph6DUos_Q1Z_koY77tN6pQHaKE&pid=Api&P=0&h=180
-
 function Categories() {
   return (
     <div className='categories'>
@@ -31,7 +24,6 @@ function Categories() {
           <div className="row">
             <div className="row1">
               <img src="https://rukminim2.flixcart.com/image/612/612/xif0q/watch/v/w/o/-original-imagta7uyupbfzsf.jpeg?q=70" alt="" />
-              {/* <button><Link to="/products/0" className='link'>Accessories</Link></button> */}
             </div>
             <div className="row1">
               <img src="https://rukminim2.flixcart.com/image/612/612/xif0q/shoe/1/i/u/-original-imaggcb7ndjv7fue.jpeg?q=70" alt="" />

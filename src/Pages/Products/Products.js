@@ -5,59 +5,65 @@ import { useLocation, useNavigate, useParams } from "react-router-dom";
 import axios from "axios";
 import { Context } from "../../Context/UserContext";
 import { Card } from "@mui/material";
+import Filter from "../../Components/Filter/Filter";
+import { ArrowRight } from "@mui/icons-material";
 
 function Products() {
 
   const location = useLocation();
   const catId = useParams().id;
   const [maxPrice, setMaxPrice] = useState(1000);
-  const [bannerImg,setBannerImg] = useState('')
+  const [bannerImg, setBannerImg] = useState('')
   const [sort, setSort] = useState(null);
-  const [sorting,setSorting] = useState(false)
+  const [sorting, setSorting] = useState(false)
   // const fetch = true;
   const { data, setData } = useContext(Context);
-  const [sortlist,setSortList] = useState([])
+  const [sortlist, setSortList] = useState([])
+  const [filter,setFilter] = useState(false)
 
   // const [category,setCategory] = useState(true)
 
-  const sorteddata=()=>{
-    data.filter(item=>item.newPrice == maxPrice)
+  const sorteddata = () => {
+    data.filter(item => item.newPrice == maxPrice)
   }
 
-  const dataOnChange=(e)=>{
+  const dataOnChange = (e) => {
     setMaxPrice(e.target.value)
     setSorting(true)
-    setSortList(data.filter(item=>item.newPrice < maxPrice))
+    setSortList(data.filter(item => item.newPrice < maxPrice))
   }
 
-  const sortAsc=()=>{
+  const sortAsc = () => {
     setSorting(true)
     setSortList(data.sort((a, b) => a.newPrice - b.newPrice))
   }
 
-  const sortDsc=()=>{
+  const sortDsc = () => {
     setSorting(true)
     setSortList(data.sort((a, b) => b.newPrice - a.newPrice))
   }
 
-  const categorySort=(e)=>{
+  const categorySort = (e) => {
     setSorting(true)
-    setSortList(data.filter(item=>item.category == e.target.value))
+    setSortList(data.filter(item => item.category == e.target.value))
   }
-  useEffect(()=>{
-    switch(true){
+  useEffect(() => {
+    switch (true) {
       case location.pathname === "/children":
         setBannerImg('./img/kids fahion.jpg');
         break;
       case location.pathname === "/men":
         setBannerImg('./img/men fashion.jpg');
-        break; 
+        break;
       case location.pathname === "/women":
         setBannerImg('./img/women fashion.jpg');
-        break;   
+        break;
     }
-  },[location.pathname])
+  }, [location.pathname])
 
+  const apply = () => {
+    setFilter(false)
+  }
   // switch(true){
   //   case(location.pathname === "children"):
   //   setBannerImg('./img/women fashion.jpg')
@@ -68,36 +74,37 @@ function Products() {
 
   return (
     <div className="products">
-      <div className="category" >Category{location.pathname}</div>
-      <div className="left" >
+      {/*<div className="category" >Category{location.pathname}</div>*/}
+      <div onClick={()=>setFilter(!filter)} className="filterbtn"><ArrowRight/> Filter</div>
+      <div className="left">
         <div className="filterItem">
           <h1>Product Category</h1>
           <div className="inputItem">
-            <input type="checkbox" id="1" value="shirt" onChange={(e)=>categorySort(e)}  />
+            <input type="checkbox" id="1" value="shirt" onChange={(e) => categorySort(e)} />
             <label htmlFor="1">Shirts</label>
           </div>
           <div className="inputItem">
-            <input type="checkbox" id="2"  value="tshirt" onChange={(e)=>categorySort(e)}  />
+            <input type="checkbox" id="2" value="tshirt" onChange={(e) => categorySort(e)} />
             <label htmlFor="2">Tshirts</label>
           </div>
           <div className="inputItem">
-            <input type="checkbox" id="3" value="trouser" onChange={(e)=>categorySort(e)}  />
+            <input type="checkbox" id="3" value="trouser" onChange={(e) => categorySort(e)} />
             <label htmlFor="3">Trousers</label>
           </div>
           <div className="inputItem">
-            <input type="checkbox" id="4" value="top" onChange={(e)=>categorySort(e)}  />
+            <input type="checkbox" id="4" value="top" onChange={(e) => categorySort(e)} />
             <label htmlFor="4">Top</label>
           </div>
           <div className="inputItem">
-            <input type="checkbox" id="5" value="saree" onChange={(e)=>categorySort(e)}  />
+            <input type="checkbox" id="5" value="saree" onChange={(e) => categorySort(e)} />
             <label htmlFor="5">Saree</label>
           </div>
           <div className="inputItem">
-            <input type="checkbox" id="6" value="hat" onChange={(e)=>categorySort(e)}  />
+            <input type="checkbox" id="6" value="hat" onChange={(e) => categorySort(e)} />
             <label htmlFor="6">Hats</label>
           </div>
           <div className="inputItem">
-            <input type="checkbox" id="7" value="shoes" onChange={(e)=>categorySort(e)} />
+            <input type="checkbox" id="7" value="shoes" onChange={(e) => categorySort(e)} />
             <label htmlFor="7">Shoes</label>
           </div>
         </div>
@@ -109,7 +116,7 @@ function Products() {
               type="range"
               min={0}
               max={1000}
-              onChange={(e)=>dataOnChange(e)}
+              onChange={(e) => dataOnChange(e)}
             />
             <span>{maxPrice}</span>
           </div>
@@ -146,9 +153,10 @@ function Products() {
             alt=""
           />
         </div>
-        <List sorting={sorting} setSorting={setSorting} sortlist={sortlist}/>
+        <List sorting={sorting} setSorting={setSorting} sortlist={sortlist} />
         {/* catId={catId} maxPrice={maxPrice} sort={sort}  */}
       </div>
+      {filter && <Filter apply={apply} categorySort={categorySort} sortAsc={sortAsc} sortDsc={sortDsc} maxPrice={maxPrice} dataOnChange={dataOnChange} filter={filter} setFilter={setFilter}/>}
     </div>
   );
 }

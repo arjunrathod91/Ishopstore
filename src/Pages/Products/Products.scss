@@ -13,6 +13,9 @@
     .category-btn {
         display: none;
     }
+    .filterbtn{
+        display: none;
+    }
 
     .left {
         flex: 1;
@@ -38,23 +41,19 @@
                 }
             }
         }
+        .apply{
+            display: none;
+        }
 
     }
 
     .right {
         flex: 3;
 
-        .list {
-            display: flex;
-            margin-right: 10px;
-            gap: 20px;
-            flex-wrap: wrap;
-            margin-top: 50px;
-        }
-
         .theme-img {
             height: 250px;
             width: 1000px;
+            margin-bottom: 50px;
 
             img {
                 object-fit: cover;
@@ -90,6 +89,9 @@
 
 @media only screen and (max-width:427px) {
     .products{
+        display: flex;
+        flex-direction: column;
+        // margin-top: 50px;
         .category{
             display: flex;
             font-size: 2rem;
@@ -99,13 +101,23 @@
             left: 2%;
             margin-bottom: 50px;
         }
+        .filterbtn{
+            display: flex;
+        }
         .left{
             display: none;
+            // .apply{
+            //     display: flex;
+            // }
         }
         .right{
-            margin-top: 30px;
-            .search-section{
-                margin-top: 50px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            .list {
+                // flex-wrap: wrap;
+                // justify-content: center;
+                // align-items: center;
             }
         }
 
