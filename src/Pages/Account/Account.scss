@@ -51,19 +51,19 @@
     }
 }
 
-@media only screen and (max-width:800px) {
-    .account{
-        .acc-menu{
-            width: 40%;
-        }
-        .acc-details{
-            width: 50%;
-        }
-    }
+// @media only screen and (max-width:800px) {
+//     .account{
+//         .acc-menu{
+//             width: 40%;
+//         }
+//         .acc-details{
+//             width: 50%;
+//         }
+//     }
 
-}
+// }
 
-@media only screen and (max-width:530px) {
+@media only screen and (max-width:350px) {
     .account {
         position: relative;
 
